@@ -1,0 +1,35 @@
+#application .site-header, #application .app-footer {
+	background: #2176d2;
+}
+
+#application .site-header .page-title-container h1 {
+	font-size: 2.14286rem;
+}
+
+#action-label h3 {
+  padding: 0;
+  margin: 0;
+  /* vertical-align: middle;
+  line-height: 75%; */
+  margin-top: 5px;
+}
+
+#topic-panel h1 {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+#topic-list {
+  columns: 2;
+  list-style: none;
+  margin: 0;
+}
+
+#topic-list li {
+  text-align: center;
+  padding: 20px;
+}
+
+#map {
+  height: 100%;
+}

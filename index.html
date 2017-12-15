@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>311 Explorer | phila.gov</title>
+    <!-- <link rel="stylesheet" type="text/css" href="//unpkg.com/phila-standards@0.11.2/dist/css/phila-app.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/phila-standards@0.11.2/dist/css/phila-app.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="http://standards.phila.gov/img/favicon.png"> <meta name="twitter:card" content="summary">
+    <!-- <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="Digital Standards | City of Philadelphia">
+    <meta property="og:image" content="https://beta.phila.gov/media/20160715133810/phila-gov.jpg"> -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+          integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+          crossorigin=""
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body lang="en">
+    <div id="application" class="grid-y medium-grid-frame">
+      <!-- Begin header -->
+      <header class="site-header app group">
+        <div class="row expanded">
+          <!-- if you don't want a full-width header, remove the expanded class -->
+          <div class="columns">
+            <a href="http://beta.phila.gov/" class="logo">
+              <img src="http://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png" alt="City of Philadelphia">
+            </a>
+            <div class="app-divide"></div>
+            <div class="page-title-container">
+              <a href="#/">
+                <h1 class="page-title">311 Explorer</h1>
+                <!-- <h2 class="page-subtitle">An optional subtitle</h2> -->
+              </a>
+            </div>
+            <div class="app-buttons">
+              <div id="action-label">
+                <h3>{{ action }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- <div class="app-nav">
+        <div class="row expanded">
+          <div class="columns">
+            <nav>
+              <ul>
+                <li>
+                  <a href="#">Link 1</a>
+                </li>
+                <li>
+                  <a href="#">Link 2</a>
+                </li>
+                <li>
+                  <a href="#">Link 3</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div> -->
+
+      <main class="cell medium-auto grid-x">
+        <!-- TOPIC PANEL -->
+        <div id="topic-panel" class="cell medium-12 small-order-2 medium-order-1">
+          <!-- <ul id="topic-list">
+            <li v-for="topic in topics">
+              <a href="#">
+                {{ topic.label }}
+              </a>
+            </li>
+          </ul> -->
+
+          <h1 class="center">What types of service requests are you interested in?</h1>
+
+          <div class="row equal-height">
+            <div v-for="topic in topics"
+                 class="small-24 medium-8 column end"
+            >
+              <a v-bind:href="'#/?search=' + topic.noun"
+                 class="card card--overview equal"
+              >
+                <div class="content-block">
+                  <h3>{{ labelForTopic(topic) }}</h3>
+                  <!-- <p>Identifying and getting the necessary trade license to do business in Philadelphia.</p> -->
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="medium-16 medium-offset-4 small-24 center">
+            <h3>Or search for something else:</h3>
+            <form id="search-form" onsubmit="return false;">
+              <input type="text" id="search-input">
+            </form>
+          </div>
+
+        </div><!-- / TOPIC PANEL -->
+
+        <!-- MAP PANEL -->
+        <div id="map-panel" class="medium-12 small-order-1 small-24 medium-order-2">
+          <div id="map"></div>
+        </div>
+      </main>
+
+      <!-- <div class="app-footer anchor">
+        <footer>
+          <div class="row expanded">
+            <div class="columns">
+              <nav>
+                <ul class="inline-list">
+                  <li>
+                    <a href="https://beta.phila.gov/feedback/">Feedback</a>
+                  </li>
+                  <li>
+                    <a href="#">More links</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </footer>
+      </div> -->
+    </div>
+    <!-- #application -->
+
+    <!-- JS -->
+    <script src="//cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/moment.min.js"></script>
+    <script src="//unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+            integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+            crossorigin="">
+    </script>
+    <script src="//unpkg.com/esri-leaflet@2.0.4/dist/esri-leaflet.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
