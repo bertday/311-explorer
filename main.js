@@ -23,7 +23,7 @@ var app = (function () {
             noun: 'food truck',
           },
         ],
-        apiUrl: 'http://192.168.103.143:6080/arcgis/rest/services/GSG/GIS311_365DAYS/MapServer/0',
+        apiUrl: '//192.168.103.143:6080/arcgis/rest/services/GSG/GIS311_365DAYS/MapServer/0',
       },
       views = {},
       state = {
